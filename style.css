@@ -1,7 +1,8 @@
-﻿@layer base {
+@layer base {
   html {
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
   }
   body {
     background-color: #030712;
@@ -303,6 +304,29 @@ html.light .sunlight-rays {
   border-color: #22d3ee;
   transform: scale(1.1);
   box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+}
+
+/* Shrink cap-nodes on very small screens to prevent overlap */
+@media (max-width: 400px) {
+  .cap-node {
+    padding: 0.25rem 0.45rem;
+    font-size: 0.6rem;
+    gap: 0.25rem;
+    border-radius: 0.5rem;
+  }
+  .cap-node i {
+    font-size: 0.6rem !important;
+  }
+}
+@media (min-width: 401px) and (max-width: 639px) {
+  .cap-node {
+    padding: 0.3rem 0.55rem;
+    font-size: 0.65rem;
+    gap: 0.3rem;
+  }
+  .cap-node i {
+    font-size: 0.65rem !important;
+  }
 }
 
 @keyframes spin-slow {
