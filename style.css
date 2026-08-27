@@ -119,6 +119,7 @@ html.light .footer-text {
 }
 html.light .node-ring {
   stroke: #cbd5e1;
+  display: none;
 }
 
 /* Light Theme Cloud SVG Styling */
