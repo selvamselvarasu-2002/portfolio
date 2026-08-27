@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   // 1. Dark / Light Theme Toggle
   const themeToggleBtn = document.getElementById('theme-toggle');
   const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
@@ -22,15 +22,23 @@
   // 2. Mobile Navigation Menu Toggle
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuIcon = document.getElementById('mobile-menu-icon');
 
   if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
       mobileMenu.classList.toggle('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
+      if (mobileMenuIcon) {
+        mobileMenuIcon.className = isOpen ? 'fa-solid fa-bars text-xl' : 'fa-solid fa-xmark text-xl';
+      }
     });
 
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        if (mobileMenuIcon) mobileMenuIcon.className = 'fa-solid fa-bars text-xl';
       });
     });
   }
@@ -49,6 +57,12 @@
         detailTitle.textContent = title;
         detailDesc.textContent = desc;
         detailBox.classList.remove('hidden');
+        // On small screens, scroll the drawer into view so users can read it
+        if (window.innerWidth < 1024) {
+          setTimeout(() => {
+            detailBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 50);
+        }
       }
     };
 
