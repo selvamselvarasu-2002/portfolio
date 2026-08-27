@@ -34,6 +34,9 @@
       darkMode: 'class',
       theme: {
         extend: {
+          screens: {
+            'xs': '400px',
+          },
           fontFamily: {
             sans: ['Plus Jakarta Sans', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace'],
@@ -54,7 +57,7 @@
   </div>
 
   <header class="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80 transition-all duration-300 header-bar" id="navbar">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 min-h-[5rem] flex items-center justify-between">
       <a href="#home" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-lg p-1" aria-label="Selvam S Home">
         <div class="w-10 h-10 flex items-center justify-center group-hover:scale-105 transition-transform">
           <svg viewBox="0 0 40 46" width="40" height="46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -102,8 +105,8 @@
           <i class="fa-solid fa-moon dark:block hidden text-sm"></i>
           <i class="fa-solid fa-sun dark:hidden block text-sm text-amber-500"></i>
         </button>
-        <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2 focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Toggle navigation menu">
-          <i class="fa-solid fa-bars text-xl"></i>
+        <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2 focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i class="fa-solid fa-bars text-xl" id="mobile-menu-icon"></i>
         </button>
       </div>
     </div>
@@ -125,7 +128,7 @@
 
   <main class="relative z-10 pt-20">
     <section id="home" class="min-h-[calc(100vh-5rem)] flex items-center justify-center px-6 py-12 lg:py-20">
-      <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-8 items-center">
         
         <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 text-xs font-mono tracking-wide">
@@ -174,7 +177,7 @@
         </div>
 
         <div class="lg:col-span-6 flex items-center justify-center relative" id="capabilities">
-          <div class="w-full max-w-[560px] aspect-square relative flex items-center justify-center" id="hero-cloud-container">
+          <div class="w-full max-w-[560px] aspect-square relative flex items-center justify-center overflow-hidden" id="hero-cloud-container">
             
             <!-- Sunlight Rays (Light Mode) -->
             <div id="sunlight-container" class="sunlight-rays absolute inset-0 pointer-events-none"></div>
@@ -196,7 +199,7 @@
             </svg>
 
             <!-- Centerpiece: Custom Cloud-Shaped Core Outline Container -->
-            <div id="cloud-centerpiece" class="relative z-20 w-[270px] h-[180px] sm:w-[310px] sm:h-[205px] flex items-center justify-center p-4 text-center cursor-pointer transition-transform duration-300 hover:scale-105">
+            <div id="cloud-centerpiece" class="relative z-20 w-[200px] h-[133px] xs:w-[230px] xs:h-[153px] sm:w-[310px] sm:h-[205px] flex items-center justify-center p-4 text-center cursor-pointer transition-transform duration-300 hover:scale-105">
               <!-- SVG Cloud Vector Background Shape -->
               <svg class="cloud-svg-shape absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 500 330">
                 <defs>
@@ -613,7 +616,7 @@
           <h2 class="text-3xl sm:text-4xl font-extrabold text-white section-title">Certifications & Education</h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           
           <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-3 card-box">
             <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-lg">
@@ -732,7 +735,7 @@
 
   <!-- EMAIL DISPATCHER MODAL -->
   <div id="email-modal" class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-slate-950/80 backdrop-blur-md hidden transition-opacity duration-300">
-    <div class="relative w-full max-w-lg p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-700/80 shadow-2xl space-y-6 modal-box">
+    <div class="relative w-full max-w-lg p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-700/80 shadow-2xl space-y-6 modal-box max-h-[90vh] overflow-y-auto">
       
       <div class="flex items-center justify-between border-b border-slate-800 pb-4">
         <div class="flex items-center gap-3">
