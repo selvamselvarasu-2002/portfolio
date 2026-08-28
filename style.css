@@ -122,6 +122,47 @@ html.light .node-ring {
   display: none;
 }
 
+/* ── Light Mode: Cyan text → readable deep blue ── */
+/* Catch all Tailwind cyan text utilities that render too light on white */
+html.light .text-cyan-300,
+html.light .text-cyan-400 {
+  color: #0369a1 !important;
+  opacity: 1 !important;
+}
+/* The /80 opacity variant used on the logo subtitle */
+html.light [class*="text-cyan-"] {
+  color: #0369a1 !important;
+  opacity: 1 !important;
+}
+/* Status badge pill (Senior Associate Cloud Engineer @ TVS Electronics) */
+html.light .border-cyan-500\/30 {
+  background-color: rgba(3, 105, 161, 0.08) !important;
+  border-color: rgba(3, 105, 161, 0.35) !important;
+  color: #0369a1 !important;
+}
+/* "CORE SYSTEM" badge inside cloud */
+html.light .bg-cyan-500\/20 {
+  background-color: rgba(3, 105, 161, 0.1) !important;
+  border-color: rgba(3, 105, 161, 0.3) !important;
+  color: #0369a1 !important;
+}
+/* cap-node icons */
+html.light .cap-node i {
+  color: #0369a1 !important;
+}
+/* Timeline dot */
+html.light .timeline-dot {
+  background-color: #0369a1 !important;
+}
+/* Capability detail drawer title */
+html.light #cap-detail-title {
+  color: #0369a1 !important;
+}
+/* Stat numbers — slightly brighter to keep visual hierarchy */
+html.light .text-2xl.font-bold {
+  color: #0284c7 !important;
+}
+
 /* Light Theme Cloud SVG Styling */
 html.light .cloud-path {
   fill: #ffffff !important;
